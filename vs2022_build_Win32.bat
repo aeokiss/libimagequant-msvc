@@ -2,10 +2,13 @@
 
 @call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-cd libimagequant
+@set SrcDir=libimagequant
+@set ResDir=res
 
-nmake -f ..\res\Makefile.msvc clean
-nmake -f ..\res\Makefile.msvc NO_NLS=1 MFLAGS=-MTd DEBUG=1
+cd %SrcDir%
+
+nmake -f ..\%ResDir%\Makefile.msvc clean
+nmake -f ..\%ResDir%\Makefile.msvc NO_NLS=1 MFLAGS=-MTd DEBUG=1
 
 cd ..
 
@@ -14,14 +17,14 @@ cd ..
 rmdir /S /Q %OutputLibDir%
 mkdir %OutputLibDir%
 
-copy libimagequant\libimagequant.lib %OutputLibDir%
-copy libimagequant\libimagequant.h %OutputLibDir%
-copy libimagequant\*.pdb %OutputLibDir%
+copy %SrcDir%\libimagequant.lib %OutputLibDir%
+copy %SrcDir%\libimagequant.h %OutputLibDir%
+copy %SrcDir%\*.pdb %OutputLibDir%
 
-cd libimagequant
+cd %SrcDir%
 
-nmake -f ..\res\Makefile.msvc clean
-nmake -f ..\res\Makefile.msvc NO_NLS=1 MFLAGS=-MT
+nmake -f ..\%ResDir%\Makefile.msvc clean
+nmake -f ..\%ResDir%\Makefile.msvc NO_NLS=1 MFLAGS=-MT
 
 cd ..
 
@@ -30,8 +33,8 @@ cd ..
 rmdir /S /Q %OutputLibDir%
 mkdir %OutputLibDir%
 
-copy libimagequant\libimagequant.lib %OutputLibDir%
-copy libimagequant\libimagequant.h %OutputLibDir%
-copy libimagequant\*.pdb %OutputLibDir%
+copy %SrcDir%\libimagequant.lib %OutputLibDir%
+copy %SrcDir%\libimagequant.h %OutputLibDir%
+copy %SrcDir%\*.pdb %OutputLibDir%
 
 pause

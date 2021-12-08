@@ -2,9 +2,12 @@
 
 @call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-cd libimagequant
+@set SrcDir=libimagequant
+@set ResDir=res
 
-nmake -f ..\res\Makefile.msvc clean
+cd %SrcDir%
+
+nmake -f ..\%ResDir%\Makefile.msvc clean
 
 cd ..
 
